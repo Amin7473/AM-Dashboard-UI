@@ -92,7 +92,7 @@ const Sidebar=()=>{
                         !isCollapsed && (
                             <Box mb="10px">
                                 <Box display="flex" justifyContent="center" alignItems="center">
-                                    <img src={`../../assets/DaveP2023-05-1907_17_28.727191Screenshot_20221017-224625_Teams.jpg`} alt="profile-user" width="100px" height="100px" style={{cursor:"pointer", borderRadius:"50%"}} />
+                                    <img src={`https://api-collaborate.aptagrim.com/media_hrms2/EmployeesAPIPics/1686745750.479489.jpg`} alt="profile-user" width="100px" height="100px" style={{cursor:"pointer", borderRadius:"50%"}} />
                                 </Box>
                                 <Box textAlign="center">
                                     <Typography variant="h2" color={colors.grey[100]} fontWeight="bold" sx={{m:"20px 5px 0"}}>

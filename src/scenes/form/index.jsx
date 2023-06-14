@@ -118,7 +118,7 @@ const Form = () => {
                 />
               </Box>
               <Box display="flex" justifyContent="center" mt="30px">
-                <Button type="submit" color="secondary" variant="contained">
+                <Button type="submit" color="secondary" size="large" variant="contained">
                   Create New User
                 </Button>
               </Box>
