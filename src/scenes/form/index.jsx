@@ -14,12 +14,12 @@ const initialValues={
 }
 
 const userSchema=yup.object().shape({
-  firstName:yup.string().required("required"),
-  lastName:yup.string().required("required"),
-  email:yup.string().email("invalid email provided").required("required"),
-  contact:yup.string().required("required"),
-  address1:yup.string().required("required"),
-  address2:yup.string().required("required")
+  firstName:yup.string().required("This is a required field"),
+  lastName:yup.string().required("This is a required field"),
+  email:yup.string().email("Invalid email provided").required("This is a required field"),
+  contact:yup.string().required("This is a required field"),
+  address1:yup.string().required("This is a required field"),
+  address2:yup.string().required("This is a required field")
 })
 
 const Form = () => {
@@ -31,11 +31,11 @@ const Form = () => {
   return ( 
     <Box m="20px">
       <Header title="CREATE USER" subtitle="Create a new user profile"/>
-      <Formik onSubmit={handleFormSubmit} initialValues={initialValues} validationSchema={userSchema}>
+      <Formik onSubmit={(values,{resetForm})=>{console.log(values); resetForm({values:''});}} initialValues={initialValues} validationSchema={userSchema}>
         {
           ({values,errors,touched,handleBlur,handleChange,handleSubmit})=>(
             <form onSubmit={handleSubmit}>
-              <Box display="grid" gap="30px" gridTemplateColumns="repeat(4,minmax(0,1fr))" sx={{
+              <Box display="grid" gap="20px" gridTemplateColumns="repeat(4,minmax(0,1fr))" sx={{
                 "& > div":{gridColumn:isNonMobile ? undefined :"span 4"}
               }}>
                 <TextField 
@@ -49,7 +49,7 @@ const Form = () => {
                  name="firstName"
                  error={!!touched.firstName && !!errors.firstName}
                  helperText={touched.firstName && errors.firstName}
-                 sx={{gridColumn:"span 2"}}
+                 sx={{gridColumn:"span 2",marginTop:"30px"}}
                 />
                 <TextField 
                  fullWidth
@@ -62,7 +62,7 @@ const Form = () => {
                  name="lastName"
                  error={!!touched.lastName && !!errors.lastName}
                  helperText={touched.lastName && errors.lastName}
-                 sx={{gridColumn:"span 2"}}
+                 sx={{gridColumn:"span 2",marginTop:"30px"}}
                 />
                 <TextField 
                  fullWidth
@@ -75,7 +75,7 @@ const Form = () => {
                  name="email"
                  error={!!touched.email && !!errors.email}
                  helperText={touched.email && errors.email}
-                 sx={{gridColumn:"span 2"}}
+                 sx={{gridColumn:"span 4"}}
                 />
                 <TextField 
                  fullWidth
@@ -88,7 +88,7 @@ const Form = () => {
                  name="contact"
                  error={!!touched.contact && !!errors.contact}
                  helperText={touched.contact && errors.contact}
-                 sx={{gridColumn:"span 2"}}
+                 sx={{gridColumn:"span 4"}}
                 />
                 <TextField 
                  fullWidth
@@ -101,7 +101,7 @@ const Form = () => {
                  name="address1"
                  error={!!touched.address1 && !!errors.address1}
                  helperText={touched.address1 && errors.address1}
-                 sx={{gridColumn:"span 2"}}
+                 sx={{gridColumn:"span 4"}}
                 />
                 <TextField 
                  fullWidth
@@ -114,8 +114,13 @@ const Form = () => {
                  name="address2"
                  error={!!touched.address2 && !!errors.address2}
                  helperText={touched.address2 && errors.address2}
-                 sx={{gridColumn:"span 2"}}
+                 sx={{gridColumn:"span 4"}}
                 />
+              </Box>
+              <Box display="flex" justifyContent="center" mt="30px">
+                <Button type="submit" color="secondary" variant="contained">
+                  Create New User
+                </Button>
               </Box>
             </form>
           )

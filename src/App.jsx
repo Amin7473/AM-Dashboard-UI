@@ -22,7 +22,8 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline/>
           <div className="App">
-              <Sidebar/>
+              <div style={{bottom:"0px"}}><Sidebar/></div>
+              
                 <main className='content'>
                   <Topbar/>
                   <Routes>
